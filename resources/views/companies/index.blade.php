@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    dashboard management
+    company management
 @endsection
 
 @section('title_page')
@@ -13,7 +13,6 @@
 @endsection
 
 @section('content')
-
 <main id="main" class=" pt-16 px-28">
     <h2
         class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
@@ -111,9 +110,7 @@
         </div>
 
     </div>
-</main>
-
-@endsection
+</main>@endsection
 
 @section('scripts')
 

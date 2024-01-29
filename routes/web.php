@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('companies.index');
 });
+
+Route::get('/companie',[CompanieController::class, 'index'])->name('companie.index');
+Route::get('/companie/create',[CompanieController::class, 'create'])->name('companie.create');
+
+
+Route::post('/companie',[CompanieController::class , 'store'])->name('companie.store');
