@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class CompanieController extends Controller
 {
     public function index(){
-        return view('companies.index');
+        $comapnies = Companie::all();
+        // dd($comapnies);
+        return view('companies.index',['companies' => $comapnies]);
     }
 
     public function create(){
