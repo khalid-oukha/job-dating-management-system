@@ -20,6 +20,6 @@ Route::get('/', function () {
 
 Route::get('/companie',[CompanieController::class, 'index'])->name('companie.index');
 Route::get('/companie/create',[CompanieController::class, 'create'])->name('companie.create');
-
+Route::get('/companie/{companie}/edit',[CompanieController::class, 'edit'])->name('companie.edit');
 
 Route::post('/companie',[CompanieController::class , 'store'])->name('companie.store');

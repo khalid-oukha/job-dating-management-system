@@ -16,9 +16,9 @@
         <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
         </h2>
-        <a href="Wikis\addWiki"
+        <a href="{{route('companie.create')}}"
             class="px-4 py-2 my-2 bg-orange rounded  text-white hover:bg-primary-100 focus:outline-none transition-colors">
-            Add a annonce
+            Add a Companie
         </a>
 
 
@@ -61,7 +61,7 @@
 
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <a href="">
+                                    <a href="{{route('companie.edit',['companie' => $companie])}}">
                                         <button
                                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Edit">

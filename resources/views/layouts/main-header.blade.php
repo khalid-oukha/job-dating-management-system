@@ -11,7 +11,7 @@
 
         <a href="" class="flex items-center space-x-3 rtl:space-x-reverse px-5">
             <img src="{{URL::asset('assets/images/logo.png')}}" class="h-8" alt="wikis Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">WIKIS</span>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">JOB DATING</span>
         </a>
     </div>
 

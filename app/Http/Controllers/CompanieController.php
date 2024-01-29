@@ -29,4 +29,9 @@ class CompanieController extends Controller
         $newcompanie = Companie::create($data);
         return redirect(route('companie.index'));
     }
+
+    public function edit(Companie $companie){
+        // dd($companie);
+        return view('companies.edit',['companie' => $companie]);
+    }
 }
