@@ -38,9 +38,9 @@
                         <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
                             <h1 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Companie Data</h1>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">Here you can edit Companie's informations.</p>
-                            <form action="{{route('companie.store')}}" method="POST">
+                            <form action="{{url('update/'.$companie->id)}}" method="POST">
                                 @csrf
-                                @method('post')
+                                @method('PUT')
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -71,7 +71,7 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                                     <textarea name="description" value="" id="message" rows="4"
                                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="{{$companie->description}}"></textarea>
+                                        placeholder="">{{$companie->description}}</textarea>
 
                                 </div>
 
