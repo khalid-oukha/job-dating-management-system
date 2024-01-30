@@ -2,12 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Companie;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class AnnouncementsFactory extends Factory
+class AnnouncementFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +21,8 @@ class AnnouncementsFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            // 'companie_id' => function () {
-            //     return Companie::inRandomOrder()->first()->id;
-            // },        
+            'user_id' => User::inRandomOrder()->first()->id,
+            'company_id' => Companie::inRandomOrder()->first()->id,       
         ];
     }
 }

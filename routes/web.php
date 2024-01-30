@@ -21,9 +21,6 @@ Route::get('/', function () {
 Route::get('/companie',[CompanieController::class, 'index'])->name('companie.index');
 Route::get('/companie/create',[CompanieController::class, 'create'])->name('companie.create');
 Route::post('/companie',[CompanieController::class , 'store'])->name('companie.store');
-
-
 Route::get('/companie/{companie}/edit',[CompanieController::class, 'edit'])->name('companie.edit');
-
 Route::put('/update/{id}', [CompanieController::class, 'update'])->name('companie.update');
 Route::delete('/companie/{companie}',[CompanieController::class, 'delete'])->name('companie.delete');
