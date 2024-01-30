@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('founded_at');
             $table->string('address');
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

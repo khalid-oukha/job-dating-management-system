@@ -14,104 +14,150 @@
 
 @section('content')
 
-<main id="main" class=" pt-16 px-28">
-    <h2
-        class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-        <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
-    </h2>
-    <a href="Wikis\addWiki"
-        class="px-4 py-2 my-2 bg-orange rounded  text-white hover:bg-primary-100 focus:outline-none transition-colors">
-        Add a annonce
-    </a>
-
-
-    <div class="w-full py-2 overflow-hidden rounded-lg shadow-xs">
-        <div class="w-full overflow-x-auto">
-            <table class="w-full whitespace-no-wrap">
-                <thead>
-                    <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                        <th class="px-4 py-3">user</th>
-                        <th class="px-4 py-3">title</th>
-                        <th class="px-1 py-3">description</th>
-                        <th class="px-4 py-3">created_at</th>
-                        <th class="px-4 py-3">status</th>
-                        <th class="px-4 py-3">actions</th>
-
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-
-
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class="px-4 py-3 text-sm">
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                        </td>
-                        <td class="px-1 py-2 text-sm"></td>
-                        <td class="px-4 py-3 text-xs">
-
-                            <span
-                                class="px-2 py-1 font-semibold leading-tight text-gray-500 rounded-full dark:bg-green-700 dark:text-green-100">
-                            </span>
-                        </td>
-                        <td class="px-4 py-3 text-xs">
-
-                            <span class="px-2 py-1 font-semibold leading-tight rounded-full">
-
-                            </span>
-
-                        </td>
-
-                        <td class="px-4 py-3">
-                            <div class="flex items-center space-x-4 text-sm">
-                                <a href="">
-                                    <button
-                                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                        aria-label="Edit">
-                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                            viewBox="0 0 20 20">
-                                            <path
-                                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <a href="" onclick="return confirm('Do you really want to Delete ?');">
-                                    <button
-                                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                        aria-label="Delete">
-                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                            viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd"
-                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </a>
-
-
-                                <a href="" onclick="return confirm('Do you really want to Accept ?');">
-                                    <span
-                                        class="px-2 py-1 font-semibold leading-tight rounded-full  text-purple-600">
-                                        Accept
-                                    </span>
-                                </a>
-
-
-
-
-
-                            </div>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
+<main class="my-4">
+    <section>
+        <div class="relative bg-gradient-to-r from-black to-black py-16 font-[sans-serif]">
+            <div class="absolute inset-0">
+                <img src="{{URL::asset('assets/images/jobdatingcover.jpg')}}" alt="Background Image" class="w-full h-full object-cover opacity-50" />
+            </div>
+            <div class="relative max-w-screen-xl mx-auto px-8 z-10 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Welcome to Annoncements : Your Source To Find Dream Job</h1>
+                <p class="text-lg md:text-xl mb-8">Experience excellence like never before with our exclusive products and services.</p>  
+                    <a href="signup" type="button" class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">Get Started</a>    
+    
+            </div>
         </div>
+    </section>
+    
+    <section class="py-2 ">
+        <div>
+            <h2 class=" text-2xl font-bold text-center sm:text-4xl text-primary-100">Lastest Annoncements</h2>
+            <p class="max-w-3xl mx-auto mt-4 text-xl text-primary-100 dark:text-white text-center ">Explore the latest features that enhance your learning experience and make it even more exciting.</p>
+        </div>
+        <div class="container max-w-7xl px-2 mx-auto">
+            <div id="match-container" class="grid-cols-1 sm:grid md:grid-cols-3 ">
+    
+                <div class="match-card-display  mx-3 mt-6 flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-800 sm:shrink-0 sm:grow sm:basis-0">
+                    <a href="#!">
+                        <img class="rounded-t-lg" src="{{URL::asset('assets/images/cigidim.jpg')}}" alt="Annoncement" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </h5>
+                        <h5 class="mb-2 text-l  leading-tight text-neutral-500 dark:text-neutral-50">
+                            
+                        </h5>
+                        <p class=" text-base text-neutral-600 dark:text-neutral-200">
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                        </p>
+                    </div>
+                    <div class="p-3 flex justify-end">
+                        <a href="" class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
+                            View Annoncement
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 ml-2">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
+                        <small></small>
+                    </div>
+                </div>
 
-    </div>
+                <div class="match-card-display  mx-3 mt-6 flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-800 sm:shrink-0 sm:grow sm:basis-0">
+                    <a href="#!">
+                        <img class="rounded-t-lg" src="{{URL::asset('assets/images/cigidim.jpg')}}" alt="Annoncement" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </h5>
+                        <h5 class="mb-2 text-l  leading-tight text-neutral-500 dark:text-neutral-50">
+                            
+                        </h5>
+                        <p class=" text-base text-neutral-600 dark:text-neutral-200">
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                        </p>
+                    </div>
+                    <div class="p-3 flex justify-end">
+                        <a href="" class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
+                            View Annoncement
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 ml-2">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
+                        <small></small>
+                    </div>
+                </div>
+                <div class="match-card-display  mx-3 mt-6 flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-800 sm:shrink-0 sm:grow sm:basis-0">
+                    <a href="#!">
+                        <img class="rounded-t-lg" src="{{URL::asset('assets/images/cigidim.jpg')}}" alt="Annoncement" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </h5>
+                        <h5 class="mb-2 text-l  leading-tight text-neutral-500 dark:text-neutral-50">
+                            
+                        </h5>
+                        <p class=" text-base text-neutral-600 dark:text-neutral-200">
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                            Ab illo sed quam, nostrum ducimus, maxime non laudantium nobis magni commodi adipisci maiores vitae autem eos aliquid laborum perspiciatis accusantium modi.
+                        </p>
+                    </div>
+                    <div class="p-3 flex justify-end">
+                        <a href="" class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
+                            View Annoncement
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 ml-2">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
+                        <small></small>
+                    </div>
+                </div>
+
+    
+            </div>
+        </div>
+        <div class="my-5 flex flex-col items-center flex-wrap content-center">
+    
+            <p class="max-w-3xl mx-auto mt-4 text-xl text-primary-100 dark:text-white text-center ">Discover a wide array of articles on various topics in our Annoncement section. View all articles to expand your knowledge!</p>
+    
+            <div class="relative max-w-screen-xl mx-auto px-8 z-10 text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Explore More in Our Annoncement</h2>
+                <p class="text-lg md:text-xl mb-8">Discover a wide array of articles on various topics in our Annoncement section. View all articles to expand your knowledge!</p>
+                <a href="articles" type="button" class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">view all Annoncements</a>
+    
+            </div>
+    
+        </div>
+    </section>
+    
+    <section>
+        <div class="relative bg-gradient-to-r from-black to-black py-16 font-[sans-serif]">
+            <div class="absolute inset-0">
+                <img src="public/assets/images/loadmore.jpg" alt="Background Image" class="w-full h-full object-cover opacity-50" />
+            </div>
+    
+            <div class="relative max-w-screen-xl mx-auto px-8 z-10 text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Explore More in Our Annoncement</h2>
+                <p class="text-lg md:text-xl mb-8">Discover a wide array of articles on various topics in our Annoncement section. View all articles to expand your knowledge!</p>
+                <a href="articles" type="button" class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">view all Annoncements</a>
+    
+            </div>
+    
+        </div>
+    </section>
 </main>
+
+
 
 @endsection
 
