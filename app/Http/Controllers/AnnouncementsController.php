@@ -52,17 +52,21 @@ class AnnouncementsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Announcement $Announcement)
     {
-        //
+        $companies = Companie::all();
+        $users = User::all();
+        return view('announcements.edit',['Announcement' => $Announcement,'companies' => $companies,'users' => $users]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AnnouncementRequest $request, string $id)
     {
-        //
+        $announcement = Announcement::find($id);
+        $announcement->update($request->validated());
+        return redirect(route('companie.index'));
     }
 
     /**
@@ -70,6 +74,7 @@ class AnnouncementsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Announcement::destroy($id);
+        return redirect(route('announcement.index'));
     }
 }

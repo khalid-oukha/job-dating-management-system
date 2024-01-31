@@ -67,7 +67,7 @@
 
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="">
+                                        <a href="{{route('announcement.edit',['announcement' => $Announcement])}}">
                                             <button
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Edit">
@@ -80,7 +80,7 @@
                                             </button>
                                         </a>
 
-                                        <form action="" method="POST">
+                                        <form action="{{route('announcement.destroy',['announcement' => $Announcement])}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" onclick="return confirm('Do you really want to Delete ?');"
