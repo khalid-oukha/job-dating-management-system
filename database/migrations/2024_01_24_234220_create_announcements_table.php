@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('content');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('company_id');
-            // Define foreign key constraints
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });

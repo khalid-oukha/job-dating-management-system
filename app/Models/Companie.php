@@ -17,4 +17,8 @@ class Companie extends Model
         'address',
         'description',
     ];
+
+    public function Announcements(){
+        return $this->hasMany(Announcement::class);
+    }
 }

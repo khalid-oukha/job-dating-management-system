@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\CompanieController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ Route::post('/companie',[CompanieController::class , 'store'])->name('companie.s
 Route::get('/companie/{companie}/edit',[CompanieController::class, 'edit'])->name('companie.edit');
 Route::put('/update/{id}', [CompanieController::class, 'update'])->name('companie.update');
 Route::delete('/companie/{companie}',[CompanieController::class, 'delete'])->name('companie.delete');
+
+
+Route::resource('announcement',AnnouncementsController::class);

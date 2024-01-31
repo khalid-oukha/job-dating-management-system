@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{url('/')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                         <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
                     </svg>
@@ -20,31 +20,23 @@
             </li>
 
             <li>
-                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{route('companie.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
                     </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">Wikis</span>
+                    <span class="flex-1 ms-3  whitespace-nowrap">companies</span>
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{route('announcement.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
                     </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">categories</span>
+                    <span class="flex-1 ms-3  whitespace-nowrap">announcements</span>
                     <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span> -->
                 </a>
             </li>
-            <li>
-                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
-                    </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">tags</span>
-                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span> -->
-                </a>
-            </li>
+
             <li>
                 <a href="" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
