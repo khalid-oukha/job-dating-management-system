@@ -18,18 +18,17 @@ Announcement's
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-            {{-- <div>
-                @if ($errors->any())
-                <ul>
-                    @foreach ($errors as $error)
-                        <li>{{$error}}</li>
-
-
-
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Whoops!</strong>
+                <span class="block sm:inline">There were some problems with your input.</span>
+                <ul class="list-disc mt-2 ml-4">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
                 </ul>
-                    
-                @endif
-            </div> --}}
+            </div>
+        @endif
 
             <div class="w-full overflow-x-auto">
 
@@ -38,15 +37,10 @@ Announcement's
                         <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
                             <h1 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Announcement Data</h1>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">Here you can add Announcement's informations.</p>
-                            <form action="{{route('Announcement.store')}}" method="POST">
+                            <form action="{{route('announcement.store')}}" method="POST">
                                 @csrf
                                 @method('post')
-                                <div class="mb-4">
-                                    <label for="message"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                    <input type="text" placeholder="Announcement Name" name="name"
-                                        class="border p-2 rounded w-full">
-                                </div>
+
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
@@ -55,23 +49,31 @@ Announcement's
                                 </div>  
                                 <div class="mb-4">
                                     <label for="message"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">address</label>
-                                    <input type="text" placeholder="your address here" name="address"
-                                        class="border p-2 rounded w-full">
-                                </div>  
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">user</label>
+                                        <select name="user_id" class="border p-2 rounded w-full"  id="">
+                                            @foreach ($users as $user)
+                                            <option class="text-gray-900 dark:text-white" value="{{$user->id}}">{{$user->name}}</option>  
+                                            @endforeach
+                                        </select>
+                                </div> 
                                 <div class="mb-4">
                                     <label for="message"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Founded at</label>
-                                    <input type="date"  name="founded_at"
-                                        class="border p-2 rounded w-full">
-                                </div>                                
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Companie</label>
+                                        <select name="company_id" class="border p-2 rounded w-full" id="">
+                                            @foreach ($companies as $companie)
+                                            <option class="text-gray-900 dark:text-white" value="{{$companie->id}}">{{$companie->name}}</option>  
+                                            @endforeach
+                                        </select>
+                                </div>  
+
+                                
                                 <div class="md:grid-cols-2 gap-4 mb-4">
 
-                                    <label for="message"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    <textarea name="description" id="message" rows="4"
+                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                    <textarea name="content" id="message" rows="4"
                                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Write your thoughts here..."></textarea>
+                                        placeholder="Write your thoughts here...">
+                                    </textarea>
 
                                 </div>
 

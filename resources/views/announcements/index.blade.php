@@ -16,7 +16,7 @@
         <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Announcement
         </h2>
-        <a href=""
+        <a href="{{route('announcement.create')}}"
             class="px-4 py-2 my-2 bg-orange rounded  text-white hover:bg-primary-100 focus:outline-none transition-colors">
             Add a Announcement
         </a>

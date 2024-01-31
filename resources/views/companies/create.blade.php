@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    add company 
+    add company
 @endsection
 
 @section('title_page')
@@ -18,18 +18,18 @@
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-            {{-- <div>
-                @if ($errors->any())
-                <ul>
-                    @foreach ($errors as $error)
-                        <li>{{$error}}</li>
-
-
-
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Whoops!</strong>
+                <span class="block sm:inline">There were some problems with your input.</span>
+                <ul class="list-disc mt-2 ml-4">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
                 </ul>
-                    
-                @endif
-            </div> --}}
+            </div>
+        @endif
+        
 
             <div class="w-full overflow-x-auto">
 
@@ -38,7 +38,7 @@
                         <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
                             <h1 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Companie Data</h1>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">Here you can add Companie's informations.</p>
-                            <form action="{{route('companie.store')}}" method="POST">
+                            <form action="{{ route('companie.store') }}" method="POST">
                                 @csrf
                                 @method('post')
                                 <div class="mb-4">
@@ -52,19 +52,19 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                                     <input type="text" placeholder="your title here" name="title"
                                         class="border p-2 rounded w-full">
-                                </div>  
+                                </div>
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">address</label>
                                     <input type="text" placeholder="your address here" name="address"
                                         class="border p-2 rounded w-full">
-                                </div>  
+                                </div>
                                 <div class="mb-4">
                                     <label for="message"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Founded at</label>
-                                    <input type="date"  name="founded_at"
-                                        class="border p-2 rounded w-full">
-                                </div>                                
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Founded
+                                        at</label>
+                                    <input type="date" name="founded_at" class="border p-2 rounded w-full">
+                                </div>
                                 <div class="md:grid-cols-2 gap-4 mb-4">
 
                                     <label for="message"

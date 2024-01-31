@@ -18,19 +18,17 @@
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-            {{-- <div>
-                @if ($errors->any())
-                <ul>
-                    @foreach ($errors as $error)
-                        <li>{{$error}}</li>
-
-
-
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Whoops!</strong>
+                <span class="block sm:inline">There were some problems with your input.</span>
+                <ul class="list-disc mt-2 ml-4">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
                 </ul>
-                    
-                @endif
-            </div> --}}
-
+            </div>
+        @endif
             <div class="w-full overflow-x-auto">
 
                 <div class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">

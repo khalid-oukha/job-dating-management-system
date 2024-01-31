@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanieRequest;
 use App\Models\Companie;
 use Illuminate\Http\Request;
 
@@ -19,17 +20,17 @@ class CompanieController extends Controller
         return view('companies.create');
     }
 
-    public function store(Request $request)
+    public function store(CompanieRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required|max:255',
-            'title' => 'required|max:255',
-            'address' => 'required|max:255',
-            'description' => 'required|max:2000',
-            'founded_at' => 'required|date',
-        ]);
+        // $data = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'title' => 'required|max:255',
+        //     'address' => 'required|max:255',
+        //     'description' => 'required|max:2000',
+        //     'founded_at' => 'required|date',
+        // ]);
 
-        $newcompanie = Companie::create($data);
+        $newcompanie = Companie::create($request->validated());
         return redirect(route('companie.index'));
     }
 
@@ -39,22 +40,17 @@ class CompanieController extends Controller
         return view('companies.edit', ['companie' => $companie]);
     }
 
-    public function update($id, Request $request)
+    public function update($id, CompanieRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required|max:255',
-            'title' => 'required|max:255',
-            'address' => 'required|max:255',
-            'description' => 'required|max:2000',
-            'founded_at' => 'required|date',
-        ]);
+        // $data = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'title' => 'required|max:255',
+        //     'address' => 'required|max:255',
+        //     'description' => 'required|max:2000',
+        //     'founded_at' => 'required|date',
+        // ]);
         $companie = Companie::find($id);
-        // $companie->name = $request->input('name');
-        // $companie->title = $request->input('title');
-        // $companie->address = $request->input('address');
-        // $companie->description = $request->input('description');
-        // $companie->founded_at = $request->input('founded_at');
-        $companie->update($data);
+        $companie->update($request->validated());
         return redirect(route('companie.index'));
 
     }

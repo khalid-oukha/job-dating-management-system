@@ -14,7 +14,7 @@ class Announcement extends Model
         "title",
         'content',
         'user_id',
-        'companie_id',
+        'company_id',
     ];
     public function Companie(){
         return $this->belongsTo(Companie::class,'company_id');

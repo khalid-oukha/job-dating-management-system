@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Companie;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Http\Requests\AnnouncementRequest;
 
 class AnnouncementsController extends Controller
 {
@@ -22,15 +25,20 @@ class AnnouncementsController extends Controller
      */
     public function create()
     {
-        //
+        $companies = Companie::all();
+        $users = User::all();
+        return view("announcements.create",["companies" => $companies,"users"=> $users]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AnnouncementRequest $request)
     {
-        //
+        // dd($request->validated());
+        Announcement::create($request->validated());
+        return redirect(route('announcement.index'));
+
     }
 
     /**
