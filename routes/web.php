@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AnnouncementsController;
-use App\Http\Controllers\CompanieController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanieController;
+use App\Http\Controllers\AnnouncementsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::delete('/companie/{companie}',[CompanieController::class, 'delete'])->nam
 
 
 Route::resource('announcement',AnnouncementsController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

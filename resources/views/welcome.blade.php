@@ -23,7 +23,7 @@
             <div class="relative max-w-screen-xl mx-auto px-8 z-10 text-center text-white">
                 <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Welcome to Annoncements : Your Source To Find Dream Job</h1>
                 <p class="text-lg md:text-xl mb-8">Experience excellence like never before with our exclusive products and services.</p>  
-                    <a href="signup" type="button" class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">Get Started</a>    
+                    <a href="{{route('register')}}" type="button" class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">Get Started</a>    
     
             </div>
         </div>
