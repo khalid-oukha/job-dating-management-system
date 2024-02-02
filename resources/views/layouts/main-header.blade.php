@@ -40,7 +40,8 @@
                     </button>
                 </div>
             </li>
-            <!-- user menu -->
+            @auth
+                          <!-- user menu -->
             <li class="relative">
                 <button type="button"
                     class="flex text-sm py-2 px-2 dark:bg-primary-100 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -55,10 +56,9 @@
 
                         <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
                             href="#">
-                            <span>khalid</span>
+                            <span>{{auth()->user()->name}}</span>
 
                         </a>
-
                     </li>
                     <li class=" flex">
 
@@ -87,7 +87,9 @@
                     </li>
                 </ul>
 
-            </li>
+            </li>  
+            @endauth
+
 
 
             <!-- Notifications menu -->

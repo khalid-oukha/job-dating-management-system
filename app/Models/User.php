@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', // Add 'role' to the $fillable array
+
     ];
 
     /**
