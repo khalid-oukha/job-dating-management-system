@@ -59,7 +59,7 @@
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Companie</label>
-                                        <select name="company_id" class="border p-2 rounded w-full" id="">
+                                        <select name="companie_id" class="border p-2 rounded w-full" id="">
                                             @foreach ($companies as $companie)
                                             <option class="text-gray-900 dark:text-white" value="{{$companie->id}}">{{$companie->name}}</option>  
                                             @endforeach

@@ -22,7 +22,7 @@ class CompanieFactory extends Factory
             'title' => $this->faker->sentence,
             'founded_at' => $this->faker->date,
             'address' => $this->faker->address,
-            'description' => $this->faker->paragraph,
+            'description' => $this->faker->sentence,
         ];
 
     }

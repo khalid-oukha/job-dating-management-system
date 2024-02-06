@@ -22,13 +22,13 @@ class AnnouncementFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            $user_ids = DB::table('users')->select('id')->get(),
-            $companies_ids = DB::table('companies')->select('id')->get(),
+            // $user_ids = DB::table('users')->select('id')->get(),
+            // $companies_ids = DB::table('companies')->select('id')->get(),
 
-            // 'user_id' => User::inRandomOrder()->first()->id,
-            // 'company_id' => Companie::inRandomOrder()->first()->id,   
-            'user_id' => $this->faker->randomElement($user_ids)->id,
-            'company_id' => $this->faker->randomElement($companies_ids)->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'companie_id' => Companie::inRandomOrder()->first()->id,   
+            // 'user_id' => $this->faker->randomElement($user_ids)->id,
+            // 'companie_id' => $this->faker->randomElement($companies_ids)->id,
                
         ];
 
