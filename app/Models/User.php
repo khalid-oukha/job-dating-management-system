@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Models;
-use Spatie\Permission\Traits\HasRoles;
+use Laravel\Sanctum\HasApiTokens;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -47,4 +48,9 @@ class User extends Authenticatable
     public function Announcements(){
         return $this->hasMany(Announcement::class);
     }
+
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Role::class,'model_has_roles');
+    // }
 }
