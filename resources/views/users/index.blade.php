@@ -43,7 +43,7 @@
                                 <td class="px-4 py-3 text-sm">{{ $user->name }}</td>
                                 <td class="px-4 py-3 text-xs">
                                     @foreach ($user->roles as $role)
-                                        
+
                                     <span
                                         class="px-2 py-1 font-semibold leading-tight bg-green-200 text-gray-500 rounded-full dark:bg-green-700 dark:text-green-100">
                                         {{ $role->name }}

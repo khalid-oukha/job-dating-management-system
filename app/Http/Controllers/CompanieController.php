@@ -56,8 +56,9 @@ class CompanieController extends Controller
     }
 
     public function delete($id){
-        
+
         $companie = companie::destroy($id);
         return redirect(route('companie.index'));
     }
+    
 }

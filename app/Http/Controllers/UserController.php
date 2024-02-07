@@ -52,15 +52,30 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('users.edit', compact('user','roles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->validated());
+        $roleName = $request->input('role_name');
+
+        if ($user->roles->isNotEmpty()) {
+            $currentRole = $user->roles->first();
+            if ($currentRole->name !== $roleName) {
+                $user->removeRole($currentRole->name);
+            }
+        }
+
+        $user->assignRole($roleName);
+
+        return redirect()->route("user.index")->with("success", "user created");
     }
 
     /**
@@ -68,6 +83,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::destroy($id);
+        
+        return redirect()->route('user.index')->with("success",'user deleted');
     }
+    
+    
 }

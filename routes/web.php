@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanieController;
 use App\Http\Controllers\AnnouncementsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -37,10 +38,15 @@ Route::resource('announcement',AnnouncementsController::class);
 
 });
 
-Route::middleware(['guest',''])->group(function () {
 Auth::routes();
-});
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('skill', SkillsController::class);
 Route::resource('user',UserController::class);
+
+// Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+Route::get('/profile/{profile}/show',[ProfileController::class,'index'])->name('profile.index');
+Route::get('/profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
+Route::put('/profile/{profile}/update',[ProfileController::class,'update'])->name('profile.update');
+
