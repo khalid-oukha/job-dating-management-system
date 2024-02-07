@@ -40,7 +40,6 @@
                                 <ul>
                                     @foreach ($skills as $skill )
                                     <li class="mb-2">{{$skill->name}}</li>
-
                                     @endforeach
                                 </ul>
                             </div>

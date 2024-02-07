@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use App\Models\User;
 use App\Models\Companie;
 use App\Models\Announcement;
@@ -27,7 +28,8 @@ class AnnouncementsController extends Controller
     {
         $companies = Companie::all();
         $users = User::all();
-        return view("announcements.create",["companies" => $companies,"users"=> $users]);
+        $skills = Skill::all();
+        return view("announcements.create",["companies" => $companies,"users" => $users,"skills" => $skills]);
     }
 
     /**
@@ -35,8 +37,8 @@ class AnnouncementsController extends Controller
      */
     public function store(AnnouncementRequest $request)
     {
-        // dd($request->validated());
-        Announcement::create($request->validated());
+        $announcement = Announcement::create($request->validated());
+        $announcement->skills()->attach($request->input('skills', []));
         return redirect(route('announcement.index'));
 
     }
@@ -56,7 +58,8 @@ class AnnouncementsController extends Controller
     {
         $companies = Companie::all();
         $users = User::all();
-        return view('announcements.edit',['Announcement' => $Announcement,'companies' => $companies,'users' => $users]);
+        $skills = Skill::all();
+        return view('announcements.edit',['Announcement' => $Announcement,'companies' => $companies,'users' => $users,"skills" => $skills]);
     }
 
     /**
@@ -66,6 +69,7 @@ class AnnouncementsController extends Controller
     {
         $announcement = Announcement::find($id);
         $announcement->update($request->validated());
+        $announcement->skills()->sync($request->input('skills', []));
         return redirect(route('companie.index'));
     }
 
@@ -74,7 +78,10 @@ class AnnouncementsController extends Controller
      */
     public function destroy(string $id)
     {
+        $announcement = Announcement::find($id);
         Announcement::destroy($id);
+
+        $announcement->skills()->delete();
         return redirect(route('announcement.index'));
     }
 }

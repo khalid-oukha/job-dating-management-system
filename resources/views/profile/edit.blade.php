@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Announcement management
+    profile management
 @endsection
 
 @section('title_page')
-    Announcement's
+    profile
 @endsection
 
 @section('css')

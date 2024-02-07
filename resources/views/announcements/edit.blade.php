@@ -9,6 +9,9 @@
 @endsection
 
 @section('css')
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -46,27 +49,40 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                                     <input type="text" placeholder="your title here" name="title" value="{{$Announcement->title}}"
                                         class="border p-2 rounded w-full">
-                                </div>  
+                                </div>
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">user</label>
                                         <select name="user_id" class="border p-2 rounded w-full"  id="">
                                             @foreach ($users as $user)
-                                            <option class="text-gray-900 dark:text-white" value="{{$user->id}}">{{$user->name}}</option>  
+                                            <option class="text-gray-900 dark:text-white" value="{{$user->id}}">{{$user->name}}</option>
                                             @endforeach
                                         </select>
-                                </div> 
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">skills</label>
+                                        <select name="skills[]" multiple class="border p-2 rounded w-full" id="select-skill">
+                                            @foreach ($skills as $skill)
+                                                <option class="text-gray-900 dark:text-white" value="{{ $skill->id }}"
+                                                    @if ($Announcement->skills->contains($skill->id)) selected @endif>
+                                                    {{ $skill->name }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+                                </div>
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Companie</label>
                                         <select name="companie_id" class="border p-2 rounded w-full" id="">
                                             @foreach ($companies as $companie)
-                                            <option class="text-gray-900 dark:text-white" value="{{$companie->id}}">{{$companie->name}}</option>  
+                                            <option class="text-gray-900 dark:text-white" value="{{$companie->id}}">{{$companie->name}}</option>
                                             @endforeach
                                         </select>
-                                </div>  
+                                </div>
 
-                                
+
                                 <div class="md:grid-cols-2 gap-4 mb-4">
 
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -102,4 +118,18 @@
 @endsection
 
 @section('scripts')
+    <!-- Include TomSelect (without jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <!-- Include jQuery separately, after TomSelect -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Initialize TomSelect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new TomSelect('#select-skill', {
+                maxItems: 3,
+            });
+        });
+    </script>
 @endsection
