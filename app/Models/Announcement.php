@@ -21,12 +21,13 @@ class Announcement extends Model
     public function Companie(){
         return $this->belongsTo(Companie::class,'companie_id');
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+
     public function skills(){
         return $this->belongsToMany(Skill::class,'announcement_skills');
+    }
+
+    public function user(){
+        return $this->belongsToMany(User::class,'announcement_user');
     }
 
 }

@@ -13,6 +13,8 @@
 
 @section('content')
     <main class="my-4">
+        {{-- hero section  --}}
+
         <section>
             <div class="relative bg-gradient-to-r from-black to-black py-16 font-[sans-serif]">
                 <div class="absolute inset-0">
@@ -28,82 +30,27 @@
                     @guest
                         <a href="{{ route('register') }}" type="button"
                             class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">Get
-                            Started</a>
+                            Started
+                        </a>
                     @endguest
                     @auth
                         <a href="" type="button"
                             class="bg-primary-100 hover:bg-primary-100 text-white text-base font-semibold px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">View
-                            announcements</a>
+                            announcements
+                        </a>
                     @endauth
 
                 </div>
             </div>
         </section>
-
-        <section class="py-2 ">
-            <div>
-                <h2 class=" text-2xl font-bold text-center sm:text-4xl text-primary-100">Lastest Annoncements</h2>
-                <p class="max-w-3xl mx-auto mt-4 text-xl text-primary-100 dark:text-white text-center ">Explore the latest
-                    features that enhance your learning experience and make it even more exciting.
-                </p>
-            </div>
-            <div class="container max-w-7xl px-2 mx-auto">
-                <div id="match-container" class="grid-cols-1 sm:grid md:grid-cols-3 ">
-                    @foreach ($announcements as $announcement)
-                        <div
-                            class="match-card-display  mx-3 mt-6 flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-800 sm:shrink-0 sm:grow sm:basis-0">
-                            <a href="#!">
-                                <img class="rounded-t-lg" src="{{ URL::asset('assets/images/cigidim.jpg') }}"
-                                    alt="Annoncement" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                    {{ $announcement->title }}
-                                </h5>
-                                <h5 class="mb-2 text-l  leading-tight text-neutral-500 dark:text-neutral-50">
-
-                                </h5>
-                                <p class=" text-base text-neutral-600 dark:text-neutral-200">
-                                    {{ $announcement->content }}
-
-                                </p>
-                            </div>
-
-                            <div class="p-3 flex justify-end">
-                                <a href=""
-                                    class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
-                                    View Annoncement
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 ml-2">
-                                        <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div
-                                class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
-                                @foreach ($announcement->skills as $skill)
-                                    <small class="bg-gray-200 border mx-2 px-3 py-1.5 rounded-lg text-xs">
-                                        {{ $skill->name }}
-                                    </small>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    @endforeach
-
-
-                </div>
-            </div>
-
-        </section>
         @auth
-
-            <section class="py-2 bg-primary-100">
+        {{-- recommended announcements --}}
+        <section class="py-2 bg-primary-100">
                 <div class="max-w-7xl mx-auto my-8 px-2">
-
                     <div class=" text-2xl font-bold text-center sm:text-4xl text-white">
                         Recommended Jobs Tailored for You
                     </div>
+                    @if (count($recommendedAnnouncement)>0)
                     <p class="max-w-3xl mx-auto mt-4 text-xl text-white dark:text-white text-center ">
                         Explore the latest
                         features that enhance your learning experience and make it even more exciting.
@@ -152,6 +99,17 @@
                                             </small>
                                         @endforeach
                                     </div>
+                                    <div class="p-3 flex justify-end">
+                                        <a href="{{ route('announcement.apply', ['announcement' => $announcement]) }}"
+                                            class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
+                                            Easy Apply
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                class="w-6 h-6 ml-2">
+                                                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
 
                             </li>
@@ -159,11 +117,77 @@
 
 
                     </ul>
-
                 </div>
-            </section>
+                @else
+                <p class="max-w-3xl mx-auto mt-4 text-xl text-white dark:text-white text-center ">
+                    there is no recommended announcements for you check later
+                </p>
+                @endif
+
+        </section>
 
         @endauth
+        {{-- all announcements --}}
+
+        <section class="py-2 ">
+            <div>
+                <h2 class=" text-2xl font-bold text-center sm:text-4xl text-primary-100">Lastest Annoncements</h2>
+                <p class="max-w-3xl mx-auto mt-4 text-xl text-primary-100 dark:text-white text-center ">Explore the latest
+                    features that enhance your learning experience and make it even more exciting.
+                </p>
+            </div>
+            <div class="container max-w-7xl px-2 mx-auto">
+                <div id="match-container" class="grid-cols-1 sm:grid md:grid-cols-3 ">
+                    @foreach ($announcements as $announcement)
+                        <div
+                            class="match-card-display  mx-3 mt-6 flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-800 sm:shrink-0 sm:grow sm:basis-0">
+                            <a href="#!">
+                                <img class="rounded-t-lg" src="{{ URL::asset('assets/images/cigidim.jpg') }}"
+                                    alt="Annoncement" />
+                            </a>
+                            <div class="p-5">
+                                <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                                    {{ $announcement->title }}
+                                </h5>
+                                <h5 class="mb-2 text-l  leading-tight text-neutral-500 dark:text-neutral-50">
+
+                                </h5>
+                                <p class=" text-base text-neutral-600 dark:text-neutral-200">
+                                    {{ $announcement->content }}
+
+                                </p>
+                            </div>
+                            @auth
+                                <div class="p-3 flex justify-end">
+                                    <a href="{{ route('announcement.apply', ['announcement' => $announcement]) }}"
+                                        class="text-primary-100 border border-primary-100 py-2 px-3 rounded inline-flex  items-center">
+                                        Easy Apply
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 ml-2">
+                                            <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            @endauth
+
+                            <div
+                                class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
+                                @foreach ($announcement->skills as $skill)
+                                    <small class="bg-gray-200 border mx-2 px-3 py-1.5 rounded-lg text-xs">
+                                        {{ $skill->name }}
+                                    </small>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
+            </div>
+
+        </section>
+
 
         <section>
             <div class="relative bg-gradient-to-r from-black to-black py-16 font-[sans-serif]">

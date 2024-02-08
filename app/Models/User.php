@@ -51,8 +51,12 @@ class User extends Authenticatable
     ];
     public function Announcements()
     {
-        return $this->hasMany(Announcement::class);
+        return $this->belongsToMany(Announcement::class,'announcement_user');
     }
+    // public function Announcement()
+    // {
+    //     return $this->hasMany(Announcement::class);
+    // }
 
     public function skills()
     {

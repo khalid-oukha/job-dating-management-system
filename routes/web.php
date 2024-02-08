@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanieController;
@@ -49,4 +50,4 @@ Route::resource('user',UserController::class);
 Route::get('/profile/{profile}/show',[ProfileController::class,'index'])->name('profile.index');
 Route::get('/profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('/profile/{profile}/update',[ProfileController::class,'update'])->name('profile.update');
-
+Route::get('/announcement/{announcement}/apply',[AnnouncementsController::class,'apply'])->name('announcement.apply');

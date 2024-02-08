@@ -26,8 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $announcements = Announcement::all();
-        $recommendedAnnouncement = $this->getRecommendedAnnouncement();
-        // dd($announcements);
+        $recommendedAnnouncement = [];
+        if(auth()->user()){
+            $recommendedAnnouncement = $this->getRecommendedAnnouncement();
+        }
         return view('welcome', compact('announcements', 'recommendedAnnouncement'));
     }
 
@@ -70,6 +72,7 @@ class HomeController extends Controller
                         $numberOfMatchedSkills++;
                         break;
                     }
+
                 }
             }
             if ($numberOfMatchedSkills > $size/2) {

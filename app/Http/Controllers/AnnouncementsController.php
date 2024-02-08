@@ -73,6 +73,7 @@ class AnnouncementsController extends Controller
         return redirect(route('companie.index'));
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
@@ -82,6 +83,12 @@ class AnnouncementsController extends Controller
         Announcement::destroy($id);
 
         $announcement->skills()->delete();
+        return redirect(route('announcement.index'));
+    }
+
+    public function apply(Announcement $announcement){
+        $user = auth()->id();
+        $announcement->user()->sync($user);
         return redirect(route('announcement.index'));
     }
 }

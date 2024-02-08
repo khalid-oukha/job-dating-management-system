@@ -59,7 +59,7 @@
                                 <td class="px-4 py-3 text-xs">
 
                                     <span class="px-2 py-1 font-semibold leading-tight rounded-full">
-                                        {{ $Announcement->user->name }}
+                                        {{-- $Announcement->user->name  --}}
                                     </span>
 
                                 </td>
