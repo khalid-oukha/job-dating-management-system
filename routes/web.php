@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CompanieController;
-use App\Http\Controllers\AnnouncementsController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
+use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CompanieController;
+use App\Http\Controllers\statisticsController;
+use App\Http\Controllers\AnnouncementsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,6 @@ Route::get('/profile/{profile}/show',[ProfileController::class,'index'])->name('
 Route::get('/profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('/profile/{profile}/update',[ProfileController::class,'update'])->name('profile.update');
 Route::get('/announcement/{announcement}/apply',[AnnouncementsController::class,'apply'])->name('announcement.apply');
+
+
+Route::get('/statistics',[statisticsController::class, 'index'])->name('statistics.index');

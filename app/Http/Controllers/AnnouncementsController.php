@@ -89,6 +89,5 @@ class AnnouncementsController extends Controller
     public function apply(Announcement $announcement){
         $user = auth()->id();
         $announcement->user()->sync($user);
-        return redirect(route('announcement.index'));
-    }
+        return redirect('/');     }
 }
