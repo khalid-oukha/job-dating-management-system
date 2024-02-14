@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::all();
+        $announcements = Announcement::get();
+        // ddd($announcements);
         $recommendedAnnouncement = [];
         if(auth()->user()){
             $recommendedAnnouncement = $this->getRecommendedAnnouncement();
@@ -82,5 +83,32 @@ class HomeController extends Controller
         return $recommendedAnnouncement;
     }
 
+    public function getMOstSkill(){
+        // $annoucements = Announcement::all();
+        // $skills = Skill::all();
+        // $numberOfMatchedSkills;
+        // foreach( $annoucements as $announcement) {
+        //     foreach ($announcement->skills as $skill_announcement) {
+        //         foreach($skills as $skill){
+        //             if($skill->id == $skill_announcement->id) {
+        //                 $numberOfMatchedSkills++;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        $guilds = Skill::withCount('announcement')->orderBy('category_id')->get();
+
+    }
+
+    // public function getTotalStudents(){
+
+    //     return $totalStudents;
+    // }
+
+    // Skill::whereIn('id', function($innerQuery){
+    //     $innerQuery->select('skill_id')
+    //     ->from('announcement_skills')->groupBy('tag_id')->limit(1)->orderBy(DB::raw('count(*)'), 'DESC');
+    //     })->get();
 
 }

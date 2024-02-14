@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CompanieRequest;
 use App\Models\Companie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use App\Http\Requests\CompanieRequest;
 
 class CompanieController extends Controller
 {
     public function index()
     {
-        $comapnies = Companie::all();
+        $comapnies = Cache::remember('announcements',10,function(){
+            return Companie::all();
+
+        });
+        // $comapnies = Companie::all();
         // dd($comapnies);
         return view('companies.index', ['companies' => $comapnies]);
     }
@@ -60,5 +65,5 @@ class CompanieController extends Controller
         $companie = companie::destroy($id);
         return redirect(route('companie.index'));
     }
-    
+
 }

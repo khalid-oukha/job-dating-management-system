@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,7 +13,9 @@ class ProfileController extends Controller
     {
         $user = User::findOrfail($userId);
         $skills=$user->skills;
-        return view("profile.index",compact('user','skills'));
+        $applyedAnnouncements = $this->getAnnouncements($userId);
+        // dd($applyedAnnouncements);
+        return view("profile.index",compact('user','skills','applyedAnnouncements'));
     }
 
     public function edit(User $user)
@@ -28,4 +31,12 @@ class ProfileController extends Controller
         $user->skills()->sync($request->input('skills', []));
         return redirect()->route('profile.index', $user)->with('success', 'Profile updated successfully');
     }
+
+    public function getAnnouncements($userId){
+         $applyAnnouncements = Announcement::whereHas('user', function($query) use($userId){
+              return $query->where('user_id',$userId);
+        })->get();
+        return $applyAnnouncements;
+    }
+
 }

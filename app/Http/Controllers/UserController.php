@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Cache;
 
 class UserController extends Controller
 {
@@ -14,7 +15,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
+
+        // $users = Cache::remember('users',1000,function(){
+        //     return User::paginate(5);
+
+        // });
+        $users = User::paginate(10);
         return view("users.index", compact("users"));
     }
 
@@ -84,9 +90,9 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         User::destroy($id);
-        
+
         return redirect()->route('user.index')->with("success",'user deleted');
     }
-    
-    
+
+
 }

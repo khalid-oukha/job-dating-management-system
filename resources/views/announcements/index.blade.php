@@ -102,8 +102,8 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
 
+            </div>
         </div>
     </main>
 @endsection

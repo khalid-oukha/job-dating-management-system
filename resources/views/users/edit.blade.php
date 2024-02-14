@@ -42,7 +42,9 @@
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                    <input type="text" value="{{$user->name}}" placeholder="user Name" name="name"
+                                        <input type="text" value="{{$user->name}}" placeholder="user Name" name="name"
+                                        class="border p-2 rounded w-full">
+                                        <input type="hidden" value="{{$user->password}}" placeholder="user Name" name="password"
                                         class="border p-2 rounded w-full">
                                 </div>
                                 <div class="mb-4">

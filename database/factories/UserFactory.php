@@ -29,9 +29,16 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+
         ];
     }
 
+    public function configure()
+    {
+        return $this->afterCreating(function (\App\Models\User $user) {
+            $user->assignRole('student');
+        });
+    }
     /**
      * Indicate that the model's email address should be unverified.
      */

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\applyHistoriqueController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,11 +36,16 @@ Route::post('/companie',[CompanieController::class , 'store'])->name('companie.s
 Route::get('/companie/{companie}/edit',[CompanieController::class, 'edit'])->name('companie.edit');
 Route::put('/update/{id}', [CompanieController::class, 'update'])->name('companie.update');
 Route::delete('/companie/{companie}',[CompanieController::class, 'delete'])->name('companie.delete');
-
 Route::resource('announcement',AnnouncementsController::class);
+Route::get('/statistics',[statisticsController::class, 'index'])->name('statistics.index');
 
 });
-
+Route::middleware(['auth'])->group(function(){
+    Route::get('/profile/{profile}/show',[ProfileController::class,'index'])->name('profile.index');
+    Route::get('/profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::put('/profile/{profile}/update',[ProfileController::class,'update'])->name('profile.update');
+    Route::get('/announcement/{announcement}/apply',[AnnouncementsController::class,'apply'])->name('announcement.apply');
+});
 Auth::routes();
 
 
@@ -48,10 +54,6 @@ Route::resource('skill', SkillsController::class);
 Route::resource('user',UserController::class);
 
 // Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
-Route::get('/profile/{profile}/show',[ProfileController::class,'index'])->name('profile.index');
-Route::get('/profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
-Route::put('/profile/{profile}/update',[ProfileController::class,'update'])->name('profile.update');
-Route::get('/announcement/{announcement}/apply',[AnnouncementsController::class,'apply'])->name('announcement.apply');
 
+Route::get('/history',[applyHistoriqueController::class,'index'])->name('history.index');
 
-Route::get('/statistics',[statisticsController::class, 'index'])->name('statistics.index');

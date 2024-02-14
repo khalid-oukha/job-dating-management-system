@@ -154,7 +154,32 @@
                                     suscipit.
                                 </p>
                             </div>
+
                         </div>
+                        <h2 class="text-xl font-bold mt-6 mb-4">Announcements </h2>
+
+                        @foreach ($applyedAnnouncements as $applyedAnnouncement )
+
+                        <div class="col-span-4 sm:col-span-9">
+                            <div id="Games" class="flex items-center m-4 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+
+                                <div>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        {{ $applyedAnnouncement->title }}
+                                    </p>
+                                    <p class="mb-2 text-sm bg-gray-400 font-medium text-gray-600 dark:text-gray-400">
+                                        {{ $applyedAnnouncement->companie->name }}
+                                    </p>
+                                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                                        {{ $applyedAnnouncement->content }}
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -173,7 +198,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     new TomSelect('#select-skill', {
-      maxItems: 3,
+      maxItems: 10,
     });
   });
 </script>

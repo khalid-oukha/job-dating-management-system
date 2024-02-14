@@ -190,7 +190,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             new TomSelect('#select-skill', {
-                maxItems: 3,
+                maxItems: 10,
             });
         });
     </script>
